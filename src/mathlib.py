@@ -32,7 +32,7 @@ def mul(a, b, c = False):
     if(c == False):
         return (a * b)
     else:
-        return round(x * y, c)
+        return round(a * b, c)
 
 #-------------------------------------------
 # Name: division
@@ -48,7 +48,7 @@ def div(a, b, c = False):
     if(c == False):
         return (a / b)
     else:
-        return round(x / y, c) 
+        return round(a / b, c) 
 
 #-------------------------------------------
 # Name: Exponentiation
