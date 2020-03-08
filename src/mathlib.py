@@ -56,7 +56,7 @@ def div(a, b, c = False):
 # Return: If c does not contains a number, return result (num^exp)
 #         If c contains a number, return result (num^exp) rounded to c decimal places
 #-------------------------------------------
-def pow(num, exp, c = False):
+def exp(num, exp, c = False):
     result = pow(num, exp)
     
     if(c == False):
