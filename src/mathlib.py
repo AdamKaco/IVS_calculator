@@ -75,6 +75,7 @@ def root(num, n, c = False):
     if(num < 0):
         raise Exception
     result = pow(num, 1/n)
+    
     if(c == False):
         return result
     else:
