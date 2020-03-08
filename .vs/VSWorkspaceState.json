@@ -1,7 +1,8 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\src"
   ],
-  "SelectedNode": "\\profiling.py",
+  "SelectedNode": "\\src\\input_data_prof_100.txt",
   "PreviewInSolutionExplorer": false
 }
