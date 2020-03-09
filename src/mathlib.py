@@ -57,13 +57,9 @@ def div(a, b, c = False):
 #         If c contains a number, return result (num^exp) rounded to c decimal places
 #-------------------------------------------
 def exp(num, exp, c = False):
-    #result = pow(num, exp)
-    
-    #"""
     result = 1
     for i in range(0, exp):
         result = result *num
-       # """
     
     if(c == False):
         return result
