@@ -59,7 +59,8 @@ class TestSubtraction(unittest.TestCase):
         self.assertEqual(mathlib.sub(-3,7),-10)
         self.assertEqual(mathlib.sub(3,-7),10)
         self.assertEqual(mathlib.sub(-3,-7),4)
-        
+   
+## @brief Tests for multiplication
 class TestMultiplication(unittest.TestCase):
 
     def test_mul(self):
@@ -88,6 +89,7 @@ class TestMultiplication(unittest.TestCase):
         self.assertEqual(mathlib.mul(3,-7),-21)
         self.assertEqual(mathlib.mul(-3,-7),21)
 
+## @brief Tests for division
 class TestDivision(unittest.TestCase):
     
     def test_div(self):
@@ -116,6 +118,7 @@ class TestDivision(unittest.TestCase):
         # Try some periodic results
         self.assertAlmostEqual(mathlib.div(1,3), 1/3)
 
+## @brief Tests for computing factorial
 class TestFactorial(unittest.TestCase):
 
     def test_fact(self):
@@ -135,6 +138,7 @@ class TestFactorial(unittest.TestCase):
         self.assertEqual(mathllib.fact(3), 6)
         self.assertEqual(mathllib.fact(10), 3628800)
 
+## @brief Tests for exponentiation
 class TestExponentiation(unittest.TestCase):
 
     def test_exp(self):
@@ -187,6 +191,7 @@ class TestExponentiation(unittest.TestCase):
         self.assertEqual(mathlib.exp(2.5,2),2.5*2.5)
         self.assertEqual(mathlib.exp(10,5),100000)
 
+## @brief Tests for computing the n-th root
 class TestRoot(unittest.TestCase):
 
     def test_root(self):
@@ -235,6 +240,7 @@ class TestRoot(unittest.TestCase):
         # x = 0
         self.assertRaises(ValueError, mathlib.root, -5, 0)
 
+## @brief Tests for computing combination numbers
 class TestCombination(unittest.TestCase):
 
     def test_comb(self):
