@@ -72,7 +72,7 @@ def exp(num, exp):
         exp = abs(exp)
         neg = 1
     
-    result = result ** num
+    result = num ** exp
     if (neg == 1):
         return div(1, result)
     else:
@@ -87,13 +87,15 @@ def exp(num, exp):
 #         If c contains a number, return result (num^1/n) rounded to c decimal places
 #-------------------------------------------
 def root(num, n):
+    if (n <= 0):
+        raise ValueError #REMEMBER ME LATER
     if(num < 0 and n%2 == 0):
         raise TypeError
     elif isinstance(n, int):
         pass  
     elif (not n.is_integer()):
         raise TypeError
-    result = num ** 1/n
+    result = num ** (1/n)
     
     return result
 
