@@ -30,7 +30,7 @@ def sub(a, b):
 #-------------------------------------------
 def mul(a, b):
     return (a * b)
-
+    
 #-------------------------------------------
 # Name: division
 # Brief: Divides numbers a and b
@@ -41,7 +41,6 @@ def mul(a, b):
 def div(a, b):
     if(b == 0):
         raise ZeroDivisionError
-    
     return (a / b)
 
 
@@ -52,7 +51,6 @@ def div(a, b):
 #         If c contains a number, return result (num^exp) rounded to c decimal places
 #-------------------------------------------
 def exp(num, exp):
-    result = 1
     if (exp == 0):
         return 1
 
@@ -60,14 +58,17 @@ def exp(num, exp):
         pass
     elif (not exp.is_integer()):
         raise TypeError
+    
     if (num == 0):
         return 0
+    
     neg = 0
     if (exp < 0):
         exp = abs(exp)
         neg = 1
     
     result = num ** exp
+    
     if (neg == 1):
         return div(1, result)
     else:
@@ -84,12 +85,14 @@ def exp(num, exp):
 def root(num, n):
     if (n <= 0):
         raise ValueError #REMEMBER ME LATER
+    
     if(num < 0 and n%2 == 0):
         raise TypeError
     elif isinstance(n, int):
         pass  
     elif (not n.is_integer()):
         raise TypeError
+    
     result = num ** (1/n)
     
     return result
