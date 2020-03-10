@@ -82,14 +82,15 @@ def exp(num, exp):
 #         If c contains a number, return result (num^1/n) rounded to c decimal places
 #-------------------------------------------
 def root(num, n):
-    if (n <= 0):
-        raise ValueError #REMEMBER ME LATER
     if(num < 0 and n%2 == 0):
         raise TypeError
     elif isinstance(n, int):
         pass  
     elif (not n.is_integer()):
         raise TypeError
+
+    if (n <= 0):
+        raise ValueError #REMEMBER ME LATER
     result = num ** (1/n)
     
     return result
