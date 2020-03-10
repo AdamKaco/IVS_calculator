@@ -28,11 +28,8 @@ def sub(a, b):
 # return: If c does not contains a number, return a * b
 #         If c contains a number, return a * b rounded to c decimal places          
 #-------------------------------------------
-def mul(a, b, c = False):
-    if(c == False):
-        return (a * b)
-    else:
-        return round(a * b, c)
+def mul(a, b):
+    return (a * b)
 
 #-------------------------------------------
 # Name: division
@@ -41,14 +38,12 @@ def mul(a, b, c = False):
 # Return: If c does not contains a number, return x / y
 #         If c contains a number, return x / y rounded to c decimal places
 #-------------------------------------------
-def div(a, b, c = False):
+def div(a, b):
     if(b == 0):
         raise ZeroDivisionError
-        
-    if(c == False):
-        return (a / b)
-    else:
-        return round(a / b, c) 
+    
+    return (a / b)
+
 
 #-------------------------------------------
 # Name: Exponentiation
