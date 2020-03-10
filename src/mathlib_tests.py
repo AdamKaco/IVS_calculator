@@ -150,19 +150,19 @@ class TestExponentiation(unittest.TestCase):
         self.assertEqual(mathlib.exp(0,1),0)
         self.assertEqual(mathlib.exp(0,-1),0)
         self.assertEqual(mathlib.exp(0,7),0)
-
+                        
         # x < 0 and n = 0
         self.assertEqual(mathlib.exp(-1,0),1)
         self.assertEqual(mathlib.exp(-10,0),1)
-        
+                        
         # x < 0 and n < 0
         self.assertEqual(mathlib.exp(-1,-1),-1)
         self.assertEqual(mathlib.exp(-1,-2),1)
         self.assertEqual(mathlib.exp(-1,-5),-1)
         self.assertEqual(mathlib.exp(-10,-1),-1/10)
         self.assertEqual(mathlib.exp(-2.5,-2),1/(2.5*2.5))
-        self.assertEqual(mathlib.exp(-10,-5),-1/100000)
-
+        self.assertEqual(mathlib.exp(-10,-5),-1/100000)           
+        
         # x < 0 and n > 0
         self.assertEqual(mathlib.exp(-1,1),-1)
         self.assertEqual(mathlib.exp(-1,2),1)
@@ -170,11 +170,11 @@ class TestExponentiation(unittest.TestCase):
         self.assertEqual(mathlib.exp(-10,1),-10)
         self.assertEqual(mathlib.exp(-2.5,2),2.5*2.5)
         self.assertEqual(mathlib.exp(-10,5),-100000)
-
+                        
         # x > 0 and n = 0
         self.assertEqual(mathlib.exp(1,0), 1)
         self.assertEqual(mathlib.exp(10,0), 1)
-
+                        
         # x > 0 and n < 0
         self.assertEqual(mathlib.exp(1,-1),1)
         self.assertEqual(mathlib.exp(1,-2),1)
@@ -182,7 +182,7 @@ class TestExponentiation(unittest.TestCase):
         self.assertEqual(mathlib.exp(10,-1),1/10)
         self.assertEqual(mathlib.exp(2.5,-2),1/(2.5*2.5))
         self.assertEqual(mathlib.exp(10,-5),1/100000)
-
+                        
         # x > 0 and n > 0
         self.assertEqual(mathlib.exp(1,1),1)
         self.assertEqual(mathlib.exp(1,2),1)
@@ -205,38 +205,38 @@ class TestRoot(unittest.TestCase):
         # n > 0 and even
         self.assertRaises(ValueError, mathlib.root, 2, -1) # x must be > 0        
         # x > 0
-        self.assertEquals(mathlib.root(2, 4), 2)
-        self.assertEquals(mathlib.root(4, 16), 2)
+        self.assertEqual(mathlib.root(2, 4), 2)
+        self.assertEqual(mathlib.root(4, 16), 2)
         # x = 0
-        self.assertEquals(mathlib.root(2, 0), 0)
-        self.assertEquals(mathlib.root(4, 0), 0)
+        self.assertEqual(mathlib.root(2, 0), 0)
+        self.assertEqual(mathlib.root(4, 0), 0)
 
         # n > 0 and odd
         # x < 0
-        self.assertEquals(mathlib.root(1, -3), -3)
-        self.assertEquals(mathlib.root(3, -27), -3)
+        self.assertEqual(mathlib.root(1, -3), -3)
+        self.assertEqual(mathlib.root(3, -27), -3)
         # x > 0
-        self.assertEquals(mathlib.root(1, 3), 3)
-        self.assertEquals(mathlib.root(3, 27), 3)
+        self.assertEqual(mathlib.root(1, 3), 3)
+        self.assertEqual(mathlib.root(3, 27), 3)
         # x = 0
-        self.assertEquals(mathlib.root(1, 0), 0)
-        self.assertEquals(mathlib.root(3, 0), 0)
+        self.assertEqual(mathlib.root(1, 0), 0)
+        self.assertEqual(mathlib.root(3, 0), 0)
 
         # n < 0 and even
         self.assertRaises(ValueError, mathlib.root, -2, -1) # x must be > 0        
         # x > 0
-        self.assertEquals(mathlib.root(-2, 4), 0.5)
-        self.assertEquals(mathlib.root(-4, 16), 0.5)
+        self.assertEqual(mathlib.root(-2, 4), 0.5)
+        self.assertEqual(mathlib.root(-4, 16), 0.5)
         # x = 0
         self.assertRaises(ValueError, mathlib.root, -2, 0)
         
         # n < 0 and odd
         # x < 0
-        self.assertEquals(mathlib.root(-1, -2), -0.5)
-        self.assertEquals(mathlib.root(-5, -3125), -0.2)
+        self.assertEqual(mathlib.root(-1, -2), -0.5)
+        self.assertEqual(mathlib.root(-5, -3125), -0.2)
         # x > 0
-        self.assertEquals(mathlib.root(-1, 2), 0.5)
-        self.assertEquals(mathlib.root(-5, 3125), 0.2)
+        self.assertEqual(mathlib.root(-1, 2), 0.5)
+        self.assertEqual(mathlib.root(-5, 3125), 0.2)
         # x = 0
         self.assertRaises(ValueError, mathlib.root, -5, 0)
 
@@ -259,21 +259,21 @@ class TestCombination(unittest.TestCase):
         self.assertRaises(ValueError, mathlib.comb, 0, 1)
 
         # k = 0
-        self.assertEquals(mathlib.comb(2,0), 1)
-        self.assertEquals(mathlib.comb(5,0), 1)
-                                             
+        self.assertEqual(mathlib.comb(2,0), 1)
+        self.assertEqual(mathlib.comb(5,0), 1)
+                                            
         # k = 1                              
-        self.assertEquals(mathlib.comb(2,1), 2)
-        self.assertEquals(mathlib.comb(5,1), 5)
+        self.assertEqual(mathlib.comb(2,1), 2)
+        self.assertEqual(mathlib.comb(5,1), 5)
                                              
         # k = n                              
-        self.assertEquals(mathlib.comb(2,2), 1)
-        self.assertEquals(mathlib.comb(5,5), 1)
+        self.assertEqual(mathlib.comb(2,2), 1)
+        self.assertEqual(mathlib.comb(5,5), 1)
 
         # some other values
-        self.assertEquals(mathlib.comb(7,3), 35)
-        self.assertEquals(mathlib.comb(13,2), 78)
-        self.assertEquals(mathlib.comb(25,3), 2300)
+        self.assertEqual(mathlib.comb(7,3), 35)
+        self.assertEqual(mathlib.comb(13,2), 78)
+        self.assertEqual(mathlib.comb(25,3), 2300)
 
 
 if __name__ == "__main__":
