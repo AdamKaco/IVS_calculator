@@ -123,8 +123,8 @@ class TestFactorial(unittest.TestCase):
 
     def test_fact(self):
         # n is not an integer
-        self.assertRaises(ValueError, mathlib.fact, 2.5)
-        self.assertRaises(ValueError, mathlib.fact, -3.121)
+        self.assertRaises(TypeError, mathlib.fact, 2.5)
+        self.assertRaises(TypeError, mathlib.fact, -3.121)
         
         # n < 0
         self.assertRaises(ValueError, mathlib.fact, -1)
@@ -143,7 +143,7 @@ class TestExponentiation(unittest.TestCase):
 
     def test_exp(self):
         # n is not an integer
-        self.assertRaises(ValueError, mathlib.exp, 1, 2.5)
+        self.assertRaises(TypeError, mathlib.exp, 1, 2.5)
 
         # x = 0
         self.assertEqual(mathlib.exp(0,0),1)
@@ -199,8 +199,8 @@ class TestRoot(unittest.TestCase):
         self.assertRaises(ValueError, mathlib.root, 2, 0)
         
         # n not an integer
-        self.assertRaises(ValueError, mathlib.root, 2, 1.5)
-        self.assertRaises(ValueError, mathlib.root, 2, -7.7)
+        self.assertRaises(TypeError, mathlib.root, 2, 1.5)
+        self.assertRaises(TypeError, mathlib.root, 2, -7.7)
 
         # n > 0 and even
         self.assertRaises(ValueError, mathlib.root, 2, -1) # x must be > 0        
@@ -245,9 +245,9 @@ class TestCombination(unittest.TestCase):
 
     def test_comb(self):
         # n or k is not an integer
-        self.assertRaises(ValueError, mathlib.comb, 2.5, 1)
-        self.assertRaises(ValueError, mathlib.comb, 5, 2.5)
-        self.assertRaises(ValueError, mathlib.comb, 7.7, 5.5)
+        self.assertRaises(TypeError, mathlib.comb, 2.5, 1)
+        self.assertRaises(TypeError, mathlib.comb, 5, 2.5)
+        self.assertRaises(TypeError, mathlib.comb, 7.7, 5.5)
 
         # n or k is not non-negative
         self.assertRaises(ValueError, mathlib.comb, 2, -1)

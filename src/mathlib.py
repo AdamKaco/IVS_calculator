@@ -64,15 +64,15 @@ def exp(num, exp):
     if isinstance(exp, int):
         pass
     elif (not exp.is_integer()):
-        raise ValueError
+        raise TypeError
     if (num == 0):
         return 0
     neg = 0
     if (exp < 0):
         exp = abs(exp)
         neg = 1
-    for i in range(0, exp):
-        result = result * num
+    
+    result = result ** num
     if (neg == 1):
         return div(1, result)
     else:
@@ -86,18 +86,16 @@ def exp(num, exp):
 # Return: If c does not contains a number, return result (num^1/n)
 #         If c contains a number, return result (num^1/n) rounded to c decimal places
 #-------------------------------------------
-def root(num, n, c = False):
+def root(num, n):
     if(num < 0 and n%2 == 0):
-        raise ValueError
+        raise TypeError
+    elif isinstance(n, int):
+        pass  
     elif (not n.is_integer()):
-        raise ValueError
-    else:
-        result = pow(num, 1/n)
+        raise TypeError
+    result = num ** 1/n
     
-    if(c == False):
-        return result
-    else:
-        return round(result, c)
+    return result
 
 #-------------------------------------------
 #
@@ -106,7 +104,7 @@ def root(num, n, c = False):
 def fact(num):
     ans = 1
     if (num < 0):
-        raise ValueError
+        raise TypeError
     else:
         for i in range(1, num+1):
             ans = ans * i
