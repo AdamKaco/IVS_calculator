@@ -56,15 +56,28 @@ def div(a, b, c = False):
 # Return: If c does not contains a number, return result (num^exp)
 #         If c contains a number, return result (num^exp) rounded to c decimal places
 #-------------------------------------------
-def exp(num, exp, c = False):
+def exp(num, exp):
     result = 1
+    if (exp == 0):
+        return 1
+
+    if isinstance(exp, int):
+        pass
+    elif (not exp.is_integer()):
+        raise ValueError
+    if (num == 0):
+        return 0
+    neg = 0
+    if (exp < 0):
+        exp = abs(exp)
+        neg = 1
     for i in range(0, exp):
-        result = result *num
-    
-    if(c == False):
-        return result
+        result = result * num
+    if (neg == 1):
+        return div(1, result)
     else:
-        return round(result, c)
+        return result
+    
 
 #-------------------------------------------
 # Name: Square root
@@ -74,9 +87,12 @@ def exp(num, exp, c = False):
 #         If c contains a number, return result (num^1/n) rounded to c decimal places
 #-------------------------------------------
 def root(num, n, c = False):
-    if(num < 0):
-        raise Exception
-    result = pow(num, 1/n)
+    if(num < 0 and n%2 == 0):
+        raise ValueError
+    elif (not n.is_integer()):
+        raise ValueError
+    else:
+        result = pow(num, 1/n)
     
     if(c == False):
         return result
@@ -87,8 +103,17 @@ def root(num, n, c = False):
 #
 #
 #-------------------------------------------
-
+def fact(num):
+    ans = 1
+    if (num < 0):
+        raise ValueError
+    else:
+        for i in range(1, num+1):
+            ans = ans * i
+    return ans
 #-------------------------------------------
 #
 #
 #-------------------------------------------
+def comb (n, k):
+    return n
