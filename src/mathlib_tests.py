@@ -205,40 +205,40 @@ class TestRoot(unittest.TestCase):
         # n > 0 and even
         self.assertRaises(ValueError, mathlib.root, 2, -1) # x must be > 0        
         # x > 0
-        self.assertEqual(mathlib.root(2, 4), 2)
-        self.assertEqual(mathlib.root(4, 16), 2)
+        self.assertEqual(mathlib.root(4, 2), 2)
+        self.assertEqual(mathlib.root(16, 4), 2)
         # x = 0
-        self.assertEqual(mathlib.root(2, 0), 0)
-        self.assertEqual(mathlib.root(4, 0), 0)
+        self.assertEqual(mathlib.root(0, 2), 0)
+        self.assertEqual(mathlib.root(0, 4), 0)
 
         # n > 0 and odd
         # x < 0
-        self.assertEqual(mathlib.root(1, -3), -3)
-        self.assertEqual(mathlib.root(3, -27), -3)
+        self.assertEqual(mathlib.root(-3, 1), -3)
+        self.assertEqual(mathlib.root(-27, 3), -3)
         # x > 0
-        self.assertEqual(mathlib.root(1, 3), 3)
-        self.assertEqual(mathlib.root(3, 27), 3)
+        self.assertEqual(mathlib.root(3, 1), 3)
+        self.assertEqual(mathlib.root(27, 3), 3)
         # x = 0
-        self.assertEqual(mathlib.root(1, 0), 0)
-        self.assertEqual(mathlib.root(3, 0), 0)
+        self.assertEqual(mathlib.root(0, 1), 0)
+        self.assertEqual(mathlib.root(0, 3), 0)
 
         # n < 0 and even
         self.assertRaises(ValueError, mathlib.root, -2, -1) # x must be > 0        
         # x > 0
-        self.assertEqual(mathlib.root(-2, 4), 0.5)
-        self.assertEqual(mathlib.root(-4, 16), 0.5)
+        self.assertEqual(mathlib.root(4, -2), 0.5)
+        self.assertEqual(mathlib.root(16, -4), 0.5)
         # x = 0
-        self.assertRaises(ValueError, mathlib.root, -2, 0)
+        self.assertRaises(ValueError, mathlib.root, 0, -2)
         
         # n < 0 and odd
         # x < 0
-        self.assertEqual(mathlib.root(-1, -2), -0.5)
-        self.assertEqual(mathlib.root(-5, -3125), -0.2)
+        self.assertEqual(mathlib.root(-2, -1), -0.5)
+        self.assertEqual(mathlib.root(-3125, -5), -0.2)
         # x > 0
-        self.assertEqual(mathlib.root(-1, 2), 0.5)
-        self.assertEqual(mathlib.root(-5, 3125), 0.2)
+        self.assertEqual(mathlib.root(2, -1), 0.5)
+        self.assertEqual(mathlib.root(3125, -5), 0.2)
         # x = 0
-        self.assertRaises(ValueError, mathlib.root, -5, 0)
+        self.assertRaises(ValueError, mathlib.root, 0, -5)
 
 ## @brief Tests for computing combination numbers
 class TestCombination(unittest.TestCase):
