@@ -85,8 +85,8 @@ def exp(num, exp):
 # @name Square root
 # @brief Calculate root of number to nth-root (num^1/n)
 # @exception If n is not integer, a TypeError is activated
-#            If number < 0, a TypeError is activated
-#            If n <= 0, a ValueError is activated
+#            If number < 0, a ValueError is activated
+#            If num = 0 and n < 0, a ValueError is activated
 # @return result (num^1/n)
 # @{
 def root(num, n):
@@ -97,8 +97,6 @@ def root(num, n):
 
     if(num < 0 and n%2 == 0):
         raise ValueError
-    #elif((num < 0) and (n < 0)):
-    #    raise ValueError #REMEMBER ME LATER
     elif((num == 0) and (n < 0)):
         raise ValueError
 
