@@ -134,9 +134,9 @@ class TestFactorial(unittest.TestCase):
         self.assertEqual(mathlib.fact(0), 1)
 
         # n > 0
-        self.assertEqual(mathllib.fact(1), 1)
-        self.assertEqual(mathllib.fact(3), 6)
-        self.assertEqual(mathllib.fact(10), 3628800)
+        self.assertEqual(mathlib.fact(1), 1)
+        self.assertEqual(mathlib.fact(3), 6)
+        self.assertEqual(mathlib.fact(10), 3628800)
 
 ## @brief Tests for exponentiation
 class TestExponentiation(unittest.TestCase):
@@ -145,10 +145,13 @@ class TestExponentiation(unittest.TestCase):
         # n is not an integer
         self.assertRaises(TypeError, mathlib.exp, 1, 2.5)
 
+        # x = 0 and n < 0
+        self.assertRaises(ValueError, mathlib.exp, 0, -1)
+        self.assertRaises(ValueError, mathlib.exp, 0, -5)
+
         # x = 0
         self.assertEqual(mathlib.exp(0,0),1)
         self.assertEqual(mathlib.exp(0,1),0)
-        self.assertEqual(mathlib.exp(0,-1),0)
         self.assertEqual(mathlib.exp(0,7),0)
                         
         # x < 0 and n = 0
@@ -196,14 +199,14 @@ class TestRoot(unittest.TestCase):
 
     def test_root(self):
         # n = 0
-        self.assertRaises(ValueError, mathlib.root, 2, 0)
+        self.assertRaises(ZeroDivisionError, mathlib.root, 2, 0)
         
         # n not an integer
         self.assertRaises(TypeError, mathlib.root, 2, 1.5)
         self.assertRaises(TypeError, mathlib.root, 2, -7.7)
 
         # n > 0 and even
-        self.assertRaises(ValueError, mathlib.root, 2, -1) # x must be > 0        
+        self.assertRaises(ValueError, mathlib.root, -1, 2) # x must be > 0        
         # x > 0
         self.assertEqual(mathlib.root(4, 2), 2)
         self.assertEqual(mathlib.root(16, 4), 2)
@@ -223,7 +226,7 @@ class TestRoot(unittest.TestCase):
         self.assertEqual(mathlib.root(0, 3), 0)
 
         # n < 0 and even
-        self.assertRaises(ValueError, mathlib.root, -2, -1) # x must be > 0        
+        #self.assertRaises(ValueError, mathlib.root, -1, -2) # x must be > 0        
         # x > 0
         self.assertEqual(mathlib.root(4, -2), 0.5)
         self.assertEqual(mathlib.root(16, -4), 0.5)
@@ -254,7 +257,7 @@ class TestCombination(unittest.TestCase):
         self.assertRaises(ValueError, mathlib.comb, -2, 1)
         self.assertRaises(ValueError, mathlib.comb, -1, -5)
 
-        # n > k
+        # k > n
         self.assertRaises(ValueError, mathlib.comb, 1, 2)
         self.assertRaises(ValueError, mathlib.comb, 0, 1)
 
