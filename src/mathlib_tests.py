@@ -226,7 +226,7 @@ class TestRoot(unittest.TestCase):
         self.assertEqual(mathlib.root(0, 3), 0)
 
         # n < 0 and even
-        #self.assertRaises(ValueError, mathlib.root, -1, -2) # x must be > 0        
+        self.assertRaises(ValueError, mathlib.root, -1, -2) # x must be > n        
         # x > 0
         self.assertEqual(mathlib.root(4, -2), 0.5)
         self.assertEqual(mathlib.root(16, -4), 0.5)
