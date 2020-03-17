@@ -49,15 +49,21 @@ def div(a, b):
 ##
 # @name Exponentiation
 # @brief Calculate power of number to exponent (num^exp)
-# @exception if exp is not integer, a TypeError is activated
+# @exception If exp is not integer, a TypeError is activated
+#            If num = 0 and exp <= 0, a ValueError activated
 # @return If exp = 0, return 1 or if num = 0, return 0
 #         If exp < 0, return 1 / (num^(-exp))
 #         If exp > 0, return result (num^exp)
 ##@{
 def exp(num, exp):
     result = 1
-    if not (isinstance(exp, int) or exp.is_intiger()):
+    if isinstance(exp, int):
+        pass  
+    elif (not exp.is_integer()):
         raise TypeError
+
+    if ((num == 0) and (exp < 0)):
+        raise ValueError
     elif (exp == 0):
         return 1
     elif (num == 0):
@@ -84,15 +90,25 @@ def exp(num, exp):
 # @return result (num^1/n)
 # @{
 def root(num, n):
-    if not (isinstance(n, int) or n.is_intiger()):
+    if isinstance(n, int):
+        pass  
+    elif (not n.is_integer()):
         raise TypeError
-    elif(num < 0 and n%2 == 0):
-        raise TypeError
-    elif (n <= 0):
-        raise ValueError #REMEMBER ME LATER
-        
-    result = num ** (1/n)
-    return result
+
+    if(num < 0 and n%2 == 0):
+        raise ValueError
+    #elif((num < 0) and (n < 0)):
+    #    raise ValueError #REMEMBER ME LATER
+    elif((num == 0) and (n < 0)):
+        raise ValueError
+
+    if(num < 0):
+        num = abs(num)
+        result = -(num ** (1/n))
+        return result
+    else:
+        result = num ** (1/n) 
+        return result
 ##@}
 
 ##
@@ -105,7 +121,9 @@ def root(num, n):
 def fact(num):
     ans = 1
     
-    if not (isinstance(num, int) or num.is_intiger()):
+    if isinstance(num, int):
+        pass  
+    elif (not num.is_integer()):
         raise TypeError 
     if (num < 0):
         raise ValueError
@@ -121,21 +139,28 @@ def fact(num):
 # @brief Calculate combinations k-th class from n elements
 # @exception If n or k are not integer, a TypeError is activated
 #            If n or k are < 0, a ValueError is activated
+#            If (n - k) < 0, a ValueError is activated 
 # @return result (fact(n) / (fact(k) * fact(n - k)))
 #         If k = 0 or k = n, return 1
 #         If k = 1, return 1
 ##@{
 def comb (n, k):
-    if not (isinstance(n, int) or n.is_intiger()):
+    if isinstance(n, int):
+        pass  
+    elif (not n.is_integer()):
         raise TypeError       
-    if not (isinstance(k, int) or k.is_intiger()):
+    if isinstance(k, int):
+        pass  
+    elif (not k.is_integer()):
         raise TypeError
         
     if (n < 0):
         raise ValueError
     elif (k < 0):
         raise ValueError
-    elif (n > k):
+    elif (k > n):
+        raise ValueError
+    elif ((n - k) < 0):
         raise ValueError
     
     if (k == 0):
@@ -147,4 +172,4 @@ def comb (n, k):
     
     result = (fact(n) / (fact(k) * fact(n - k))) 
     return result
- ##@}   
+ ##@}
