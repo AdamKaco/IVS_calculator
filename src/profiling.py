@@ -1,27 +1,20 @@
-"""
-findings function is 4% faster at 10 000 due to not using frozen librery
-at 100 they behave simularly
-at 10 as well
-
-"""
-
-
-import sys #later disabled
+import sys 
 import re
 import mathlib
 
-file = open("input_data_prof_10.txt") #later disabled
-sys.stdin = file #later disabled
+
+
 
 i = 0
 j = 0
 k = 0
 ans_x = 0
 nmbs = []
-nmbs.append(0)
-
+#with open ('d.txt') as file:
+#    sys.stdin = file
 for line in sys.stdin:
-    nmbs = re.findall(r"\d+", line)
+    nmbs = nmbs + re.findall(r"\d+", line)
+
 #slower by 68% and not working correctly
 """
 for line in sys.stdin:
@@ -44,8 +37,9 @@ for nmb in nmbs:
     i = mathlib.sum(i,1)
 
 ans_x = mathlib.div(ans_x,i)
-print (ans_x)
+print ("x =", ans_x)
 
+#smerodajna odchylka vypocet
 ans_s = 0
 for nmb in nmbs:
     ans_s = mathlib.sum(ans_s, mathlib.exp(int(nmb),2))
@@ -53,6 +47,7 @@ ans_s = mathlib.sub(ans_s, mathlib.mul(i,mathlib.exp(ans_x,2)))
 i = mathlib.sub(i,1)
 ans_s = mathlib.div(ans_s,i)
 ans_s = mathlib.root(ans_s,2)
-print (round(ans_s, 4))
+
+print ("s =", round(ans_s, 4))
 
 
