@@ -126,6 +126,11 @@ class TestFactorial(unittest.TestCase):
         self.assertRaises(TypeError, mathlib.fact, 2.5)
         self.assertRaises(TypeError, mathlib.fact, -3.121)
         
+        # n is float, but integer like
+        self.assertEqual(mathlib.fact(2.00), 2)
+        self.assertEqual(mathlib.fact(3.0), 6)
+        self.assertEqual(mathlib.fact(4.000), 24)
+
         # n < 0
         self.assertRaises(ValueError, mathlib.fact, -1)
         self.assertRaises(ValueError, mathlib.fact, -319)

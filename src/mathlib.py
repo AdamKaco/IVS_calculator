@@ -127,7 +127,7 @@ def fact(num):
         raise ValueError
         
     else:
-        for i in range(1, num+1):
+        for i in range(1, int(num)+1):
             ans = ans * i
     return ans
 ##@}
