@@ -241,10 +241,10 @@ class TestRoot(unittest.TestCase):
         # n < 0 and odd
         # x < 0
         self.assertEqual(mathlib.root(-1, -2), -0.5)
-        self.assertAlmostEqual(mathlib.root(-5, -3125), -0.2)
+        self.assertEqual(mathlib.root(-5, -3125), -0.2)
         # x > 0
         self.assertEqual(mathlib.root(-1, 2), 0.5)
-        self.assertAlmostEqual(mathlib.root(-5, 3125), 0.2)
+        self.assertEqual(mathlib.root(-5, 3125), 0.2)
         # x = 0
         self.assertRaises(ValueError, mathlib.root, -5, 0)
 
