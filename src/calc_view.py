@@ -144,7 +144,7 @@ class Ui_MainWindow(object):
 
         # operator buttons
         self.button_plus.clicked.connect(lambda: self.enterOp('+'))
-        self.button_minus.clicked.connect(lambda: self.enterOp('-'))
+        self.button_minus.clicked.connect(self.enterMinus)
         self.button_mult.clicked.connect(lambda: self.enterOp('x'))
         self.button_div.clicked.connect(lambda: self.enterOp('/'))
         self.button_exp.clicked.connect(lambda: self.enterOp('^'))
