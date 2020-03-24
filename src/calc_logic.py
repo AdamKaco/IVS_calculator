@@ -68,7 +68,9 @@ class MyMainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
     
     def showRes(self):
         self.new_res = True
-        self.result.setText(str(self.calculate()))
+        tmp = self.calculate()
+        self.ans = tmp
+        self.result.setText(tmp)
 
     def calculate(self):
         # each dictionary represents one priority category
@@ -95,8 +97,15 @@ class MyMainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
                         tmp_res = p[el](float(expr_list.pop(i + offset - 1))) # samme as before, but '!' is unary
                         expr_list[i + offset - 1] = tmp_res
                         offset -= 1
+        
+        try:
+            res = float(expr_list[0])
+            res = res if not res.is_integer() else int(res)
+            res = str(res).replace('.',',')
+        except IndexError:
+            res = ''
 
-        return str(expr_list[0]).replace('.',',')
+        return res
 
     def mSet(self):
         self.mem = self.calculate()
