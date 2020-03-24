@@ -126,6 +126,11 @@ class TestFactorial(unittest.TestCase):
         self.assertRaises(TypeError, mathlib.fact, 2.5)
         self.assertRaises(TypeError, mathlib.fact, -3.121)
         
+        # n is float, but integer like
+        self.assertEqual(mathlib.fact(2.00), 2)
+        self.assertEqual(mathlib.fact(3.0), 6)
+        self.assertEqual(mathlib.fact(4.000), 24)
+
         # n < 0
         self.assertRaises(ValueError, mathlib.fact, -1)
         self.assertRaises(ValueError, mathlib.fact, -319)
@@ -199,49 +204,49 @@ class TestRoot(unittest.TestCase):
 
     def test_root(self):
         # n = 0
-        self.assertRaises(ZeroDivisionError, mathlib.root, 2, 0)
+        self.assertRaises(ZeroDivisionError, mathlib.root, 0, 2)
         
         # n not an integer
-        self.assertRaises(TypeError, mathlib.root, 2, 1.5)
-        self.assertRaises(TypeError, mathlib.root, 2, -7.7)
+        self.assertRaises(TypeError, mathlib.root, 1.5, 2 )
+        self.assertRaises(TypeError, mathlib.root, -7.7, 2)
 
         # n > 0 and even
-        self.assertRaises(ValueError, mathlib.root, -1, 2) # x must be > 0        
+        self.assertRaises(ValueError, mathlib.root, 2, -1) # x must be > 0        
         # x > 0
-        self.assertEqual(mathlib.root(4, 2), 2)
-        self.assertEqual(mathlib.root(16, 4), 2)
+        self.assertEqual(mathlib.root(2, 4), 2)
+        self.assertEqual(mathlib.root(4,16), 2)
         # x = 0
-        self.assertEqual(mathlib.root(0, 2), 0)
-        self.assertEqual(mathlib.root(0, 4), 0)
+        self.assertEqual(mathlib.root(2,0), 0)
+        self.assertEqual(mathlib.root(4,0), 0)
 
         # n > 0 and odd
         # x < 0
-        self.assertEqual(mathlib.root(-3, 1), -3)
-        self.assertEqual(mathlib.root(-27, 3), -3)
+        self.assertEqual(mathlib.root(1, -3), -3)
+        self.assertEqual(mathlib.root(3, -27), -3)
         # x > 0
-        self.assertEqual(mathlib.root(3, 1), 3)
-        self.assertEqual(mathlib.root(27, 3), 3)
+        self.assertEqual(mathlib.root(1, 3), 3)
+        self.assertEqual(mathlib.root(3, 27), 3)
         # x = 0
-        self.assertEqual(mathlib.root(0, 1), 0)
-        self.assertEqual(mathlib.root(0, 3), 0)
+        self.assertEqual(mathlib.root(1, 0), 0)
+        self.assertEqual(mathlib.root(3, 0), 0)
 
         # n < 0 and even
-        self.assertRaises(ValueError, mathlib.root, -1, -2) # x must be > n        
+        self.assertRaises(ValueError, mathlib.root, -2, -1) # x must be > n        
         # x > 0
-        self.assertEqual(mathlib.root(4, -2), 0.5)
-        self.assertEqual(mathlib.root(16, -4), 0.5)
+        self.assertEqual(mathlib.root(-2, 4), 0.5)
+        self.assertEqual(mathlib.root(-4, 16), 0.5)
         # x = 0
-        self.assertRaises(ValueError, mathlib.root, 0, -2)
+        self.assertRaises(ValueError, mathlib.root, -2, 0)
         
         # n < 0 and odd
         # x < 0
-        self.assertEqual(mathlib.root(-2, -1), -0.5)
-        self.assertEqual(mathlib.root(-3125, -5), -0.2)
+        self.assertEqual(mathlib.root(-1, -2), -0.5)
+        self.assertEqual(mathlib.root(-5, -3125), -0.2)
         # x > 0
-        self.assertEqual(mathlib.root(2, -1), 0.5)
-        self.assertEqual(mathlib.root(3125, -5), 0.2)
+        self.assertEqual(mathlib.root(-1, 2), 0.5)
+        self.assertEqual(mathlib.root(-5, 3125), 0.2)
         # x = 0
-        self.assertRaises(ValueError, mathlib.root, 0, -5)
+        self.assertRaises(ValueError, mathlib.root, -5, 0)
 
 ## @brief Tests for computing combination numbers
 class TestCombination(unittest.TestCase):

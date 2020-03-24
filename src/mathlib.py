@@ -89,7 +89,7 @@ def exp(num, exp):
 #            If num = 0 and n < 0, a ValueError is activated
 # @return result (num^1/n)
 # @{
-def root(num, n):
+def root(n, num):
     if isinstance(n, int):
         pass  
     elif (not n.is_integer()):
@@ -127,7 +127,7 @@ def fact(num):
         raise ValueError
         
     else:
-        for i in range(1, num+1):
+        for i in range(1, int(num)+1):
             ans = ans * i
     return ans
 ##@}
