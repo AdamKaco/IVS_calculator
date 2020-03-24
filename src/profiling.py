@@ -46,7 +46,7 @@ for nmb in nmbs:
 ans_s = mathlib.sub(ans_s, mathlib.mul(i,mathlib.exp(ans_x,2)))
 i = mathlib.sub(i,1)
 ans_s = mathlib.div(ans_s,i)
-ans_s = mathlib.root(ans_s,2)
+ans_s = mathlib.root(2, ans_s)
 
 print ("s =", round(ans_s, 4))
 
