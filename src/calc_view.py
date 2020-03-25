@@ -12,96 +12,122 @@ from PyQt5.QtCore import Qt
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(471, 542)
+        MainWindow.setFixedSize(470, 540)
+        
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
+        
         self.button_m_rec = QtWidgets.QPushButton(self.centralwidget)
-        self.button_m_rec.setGeometry(QtCore.QRect(20, 80, 101, 51))
+        self.button_m_rec.setGeometry(QtCore.QRect(20, 80, 100, 50))
         self.button_m_rec.setObjectName("button_m_rec")
+        
         self.button_m_clr = QtWidgets.QPushButton(self.centralwidget)
-        self.button_m_clr.setGeometry(QtCore.QRect(130, 80, 101, 51))
+        self.button_m_clr.setGeometry(QtCore.QRect(130, 80, 100, 50))
         self.button_m_clr.setObjectName("button_m_clr")
+        
         self.button_m_set = QtWidgets.QPushButton(self.centralwidget)
-        self.button_m_set.setGeometry(QtCore.QRect(240, 80, 101, 51))
+        self.button_m_set.setGeometry(QtCore.QRect(240, 80, 100, 50))
         self.button_m_set.setObjectName("button_m_set")
-        self.button_ans = QtWidgets.QPushButton(self.centralwidget)
-        self.button_ans.setGeometry(QtCore.QRect(350, 140, 101, 51))
-        font = QtGui.QFont()
-        font.setPointSize(8)
-        font.setBold(False)
-        font.setWeight(50)
-        font.setStrikeOut(False)
-        font.setKerning(True)
-        self.button_ans.setFont(font)
-        self.button_ans.setObjectName("button_ans")
-        self.button_sq = QtWidgets.QPushButton(self.centralwidget)
-        self.button_sq.setGeometry(QtCore.QRect(20, 200, 101, 51))
-        self.button_sq.setObjectName("button_sq")
-        self.button_sqrt = QtWidgets.QPushButton(self.centralwidget)
-        self.button_sqrt.setGeometry(QtCore.QRect(130, 200, 101, 51))
-        self.button_sqrt.setObjectName("button_sqrt")
-        self.button_mult = QtWidgets.QPushButton(self.centralwidget)
-        self.button_mult.setGeometry(QtCore.QRect(350, 200, 101, 51))
-        self.button_mult.setObjectName("button_mult")
-        self.button_fact = QtWidgets.QPushButton(self.centralwidget)
-        self.button_fact.setGeometry(QtCore.QRect(240, 140, 101, 51))
-        self.button_fact.setObjectName("button_fact")
+        
+        self.button_erase = QtWidgets.QPushButton(self.centralwidget)
+        self.button_erase.setGeometry(QtCore.QRect(350, 80, 100, 50))
+        self.button_erase.setObjectName("button_erase")
+        
         self.button_exp = QtWidgets.QPushButton(self.centralwidget)
-        self.button_exp.setGeometry(QtCore.QRect(20, 140, 101, 51))
+        self.button_exp.setGeometry(QtCore.QRect(20, 140, 100, 50))
         self.button_exp.setObjectName("button_exp")
+        
+        
         self.button_root = QtWidgets.QPushButton(self.centralwidget)
-        self.button_root.setGeometry(QtCore.QRect(130, 140, 101, 51))
+        self.button_root.setGeometry(QtCore.QRect(130, 140, 100, 50))
         self.button_root.setObjectName("button_root")
-        self.button_div = QtWidgets.QPushButton(self.centralwidget)
-        self.button_div.setGeometry(QtCore.QRect(350, 260, 101, 51))
-        self.button_div.setObjectName("button_div")
+        
+        self.button_fact = QtWidgets.QPushButton(self.centralwidget)
+        self.button_fact.setGeometry(QtCore.QRect(240, 140, 100, 50))
+        self.button_fact.setObjectName("button_fact")
+        
+        self.button_ans = QtWidgets.QPushButton(self.centralwidget)
+        self.button_ans.setGeometry(QtCore.QRect(350, 140, 100, 50))
+        self.button_ans.setObjectName("button_ans")
+        
+        self.button_sq = QtWidgets.QPushButton(self.centralwidget)
+        self.button_sq.setGeometry(QtCore.QRect(20, 200, 100, 50))
+        self.button_sq.setObjectName("button_sq")
+        
+        self.button_sqrt = QtWidgets.QPushButton(self.centralwidget)
+        self.button_sqrt.setGeometry(QtCore.QRect(130, 200, 100, 50))
+        self.button_sqrt.setObjectName("button_sqrt")
+        
         self.button_C = QtWidgets.QPushButton(self.centralwidget)
-        self.button_C.setGeometry(QtCore.QRect(240, 200, 101, 51))
+        self.button_C.setGeometry(QtCore.QRect(240, 200, 100, 50))
         self.button_C.setObjectName("button_C")
+        
+        self.button_mult = QtWidgets.QPushButton(self.centralwidget)
+        self.button_mult.setGeometry(QtCore.QRect(350, 200, 100, 50))
+        self.button_mult.setObjectName("button_mult")
+        
         self.button_7 = QtWidgets.QPushButton(self.centralwidget)
-        self.button_7.setGeometry(QtCore.QRect(20, 260, 101, 51))
+        self.button_7.setGeometry(QtCore.QRect(20, 260, 100, 50))
         self.button_7.setObjectName("button_7")
+        
         self.button_8 = QtWidgets.QPushButton(self.centralwidget)
-        self.button_8.setGeometry(QtCore.QRect(130, 260, 101, 51))
+        self.button_8.setGeometry(QtCore.QRect(130, 260, 100, 50))
         self.button_8.setObjectName("button_8")
-        self.button_3 = QtWidgets.QPushButton(self.centralwidget)
-        self.button_3.setGeometry(QtCore.QRect(240, 380, 101, 51))
-        self.button_3.setObjectName("button_3")
-        self.button_5 = QtWidgets.QPushButton(self.centralwidget)
-        self.button_5.setGeometry(QtCore.QRect(130, 320, 101, 51))
-        self.button_5.setObjectName("button_5")
-        self.button_plus = QtWidgets.QPushButton(self.centralwidget)
-        self.button_plus.setGeometry(QtCore.QRect(350, 320, 101, 51))
-        self.button_plus.setObjectName("button_plus")
-        self.button_2 = QtWidgets.QPushButton(self.centralwidget)
-        self.button_2.setGeometry(QtCore.QRect(130, 380, 101, 51))
-        self.button_2.setObjectName("button_2")
-        self.button_minus = QtWidgets.QPushButton(self.centralwidget)
-        self.button_minus.setGeometry(QtCore.QRect(350, 380, 101, 51))
-        self.button_minus.setObjectName("button_minus")
-        self.button_4 = QtWidgets.QPushButton(self.centralwidget)
-        self.button_4.setGeometry(QtCore.QRect(20, 320, 101, 51))
-        self.button_4.setObjectName("button_4")
+        
         self.button_9 = QtWidgets.QPushButton(self.centralwidget)
-        self.button_9.setGeometry(QtCore.QRect(240, 260, 101, 51))
+        self.button_9.setGeometry(QtCore.QRect(240, 260, 100, 50))
         self.button_9.setObjectName("button_9")
-        self.button_1 = QtWidgets.QPushButton(self.centralwidget)
-        self.button_1.setGeometry(QtCore.QRect(20, 380, 101, 51))
-        self.button_1.setObjectName("button_1")
+        
+        self.button_div = QtWidgets.QPushButton(self.centralwidget)
+        self.button_div.setGeometry(QtCore.QRect(350, 260, 100, 50))
+        self.button_div.setObjectName("button_div")
+        
+        self.button_4 = QtWidgets.QPushButton(self.centralwidget)
+        self.button_4.setGeometry(QtCore.QRect(20, 320, 100, 50))
+        self.button_4.setObjectName("button_4")
+        
+        self.button_5 = QtWidgets.QPushButton(self.centralwidget)
+        self.button_5.setGeometry(QtCore.QRect(130, 320, 100, 50))
+        self.button_5.setObjectName("button_5")
+        
         self.button_6 = QtWidgets.QPushButton(self.centralwidget)
-        self.button_6.setGeometry(QtCore.QRect(240, 320, 101, 51))
+        self.button_6.setGeometry(QtCore.QRect(240, 320, 100, 50))
         self.button_6.setObjectName("button_6")
-        self.button_eq = QtWidgets.QPushButton(self.centralwidget)
-        self.button_eq.setGeometry(QtCore.QRect(350, 440, 101, 51))
-        self.button_eq.setObjectName("button_eq")
+        
+        self.button_plus = QtWidgets.QPushButton(self.centralwidget)
+        self.button_plus.setGeometry(QtCore.QRect(350, 320, 100, 50))
+        self.button_plus.setObjectName("button_plus")
+                
+        self.button_1 = QtWidgets.QPushButton(self.centralwidget)
+        self.button_1.setGeometry(QtCore.QRect(20, 380, 100, 50))
+        self.button_1.setObjectName("button_1")
+        
+        self.button_2 = QtWidgets.QPushButton(self.centralwidget)
+        self.button_2.setGeometry(QtCore.QRect(130, 380, 100, 50))
+        self.button_2.setObjectName("button_2")
+
+        self.button_3 = QtWidgets.QPushButton(self.centralwidget)
+        self.button_3.setGeometry(QtCore.QRect(240, 380, 100, 50))
+        self.button_3.setObjectName("button_3")
+        
+        self.button_minus = QtWidgets.QPushButton(self.centralwidget)
+        self.button_minus.setGeometry(QtCore.QRect(350, 380, 100, 50))
+        self.button_minus.setObjectName("button_minus")
+        
         self.button_0 = QtWidgets.QPushButton(self.centralwidget)
-        self.button_0.setGeometry(QtCore.QRect(20, 440, 211, 51))
+        self.button_0.setGeometry(QtCore.QRect(20, 440, 210, 50))
         self.button_0.setObjectName("button_0")
+        
         self.button_decim = QtWidgets.QPushButton(self.centralwidget)
-        self.button_decim.setGeometry(QtCore.QRect(240, 440, 101, 51))
+        self.button_decim.setGeometry(QtCore.QRect(240, 440, 100, 50))
         self.button_decim.setObjectName("button_decim")
+        
+        self.button_eq = QtWidgets.QPushButton(self.centralwidget)
+        self.button_eq.setGeometry(QtCore.QRect(350, 440, 100, 50))
+        self.button_eq.setObjectName("button_eq")
+        
         self.result = QtWidgets.QLabel(self.centralwidget)
-        self.result.setGeometry(QtCore.QRect(20, 20, 431, 51))
+        self.result.setGeometry(QtCore.QRect(20, 20, 430, 50))
         font = QtGui.QFont()
         font.setPointSize(22)
         self.result.setFont(font)
@@ -112,12 +138,10 @@ class Ui_MainWindow(object):
         self.result.setWordWrap(False)
         self.result.setTextInteractionFlags(QtCore.Qt.TextSelectableByKeyboard|QtCore.Qt.TextSelectableByMouse)
         self.result.setObjectName("result")
-        self.button_erase = QtWidgets.QPushButton(self.centralwidget)
-        self.button_erase.setGeometry(QtCore.QRect(350, 80, 101, 51))
-        self.button_erase.setObjectName("button_erase")
+        
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 471, 26))
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 470, 26))
         self.menubar.setObjectName("menubar")
         MainWindow.setMenuBar(self.menubar)
         self.statusbar = QtWidgets.QStatusBar(MainWindow)
@@ -163,6 +187,7 @@ class Ui_MainWindow(object):
 
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
+
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
@@ -194,7 +219,6 @@ class Ui_MainWindow(object):
         self.button_decim.setText(_translate("MainWindow", ","))
         self.result.setText(_translate("MainWindow", ""))
         self.button_erase.setText(_translate("MainWindow", "⌫"))
-
 
 if __name__ == "__main__":
     import sys

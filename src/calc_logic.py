@@ -118,6 +118,8 @@ class MyMainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
                         raise TypeError(f"{el} - wrong operand type")
                     except ValueError:
                         raise ValueError(f"{el} - wrong values")
+                    except IndexError:
+                        raise IndexError(f"{el} - not enough operands")
 
         try:
             res = float(expr_list[0])
@@ -142,7 +144,7 @@ class MyMainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         if self.ans:
             self.enterNum(self.ans)
     
-    def keyPressEvent(self, e):
+    def keyPresseEvent(self, e):
         self.result.setText('bim bam bum')
 
 if __name__ == "__main__":
