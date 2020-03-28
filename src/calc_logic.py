@@ -32,8 +32,8 @@ class MyMainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             self.result.setText(self.result.text() + str(text))
 
     ## @brief Checks if the current number is already decimal
-    # @return True if isn't decimal
-    # @return False if is decimal
+    # @return True if number isn't decimal
+    # @return False if number is decimal
     def checkDec(self):
         currText = self.result.text()
 
@@ -57,7 +57,7 @@ class MyMainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         elif self.checkDec():
             self.result.setText(self.result.text() + ',')
 
-    ## @brief Enters a operand if possible
+    ## @brief Enters an operand if possible
     def enterOp(self, text):
         currText = self.result.text()
         self.new_res = False
@@ -164,6 +164,9 @@ class MyMainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
     def answer(self):
         if self.ans:
             self.enterNum(self.ans)
+
+    def showHelp(self):
+        print('HELP')
 
 if __name__ == "__main__":
     import sys
