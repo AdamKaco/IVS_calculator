@@ -169,7 +169,7 @@ class Ui_MainWindow(object):
         # operator buttons
         self.button_plus.clicked.connect(lambda: self.enterOp('+'))
         self.button_minus.clicked.connect(self.enterMinus)
-        self.button_mult.clicked.connect(lambda: self.enterOp('x'))
+        self.button_mult.clicked.connect(lambda: self.enterOp('*'))
         self.button_div.clicked.connect(lambda: self.enterOp('/'))
         self.button_exp.clicked.connect(lambda: self.enterOp('^'))
         self.button_sq.clicked.connect(lambda: self.enterOp('^2'))
@@ -191,35 +191,87 @@ class Ui_MainWindow(object):
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
+        
         self.button_m_rec.setText(_translate("MainWindow", "MR"))
-        self.button_m_clr.setText(_translate("MainWindow", "MC"))
-        self.button_m_set.setText(_translate("MainWindow", "MS"))
-        self.button_ans.setText(_translate("MainWindow", "ANS"))
-        self.button_sq.setText(_translate("MainWindow", "x^2"))
-        self.button_sqrt.setText(_translate("MainWindow", "2√x"))
-        self.button_mult.setText(_translate("MainWindow", "x"))
-        self.button_fact.setText(_translate("MainWindow", "!"))
-        self.button_exp.setText(_translate("MainWindow", "x^n"))
-        self.button_root.setText(_translate("MainWindow", "n√x"))
-        self.button_div.setText(_translate("MainWindow", "/"))
-        self.button_C.setText(_translate("MainWindow", "nCk"))
-        self.button_7.setText(_translate("MainWindow", "7"))
-        self.button_8.setText(_translate("MainWindow", "8"))
-        self.button_3.setText(_translate("MainWindow", "3"))
-        self.button_5.setText(_translate("MainWindow", "5"))
-        self.button_plus.setText(_translate("MainWindow", "+"))
-        self.button_2.setText(_translate("MainWindow", "2"))
-        self.button_minus.setText(_translate("MainWindow", "-"))
-        self.button_4.setText(_translate("MainWindow", "4"))
-        self.button_9.setText(_translate("MainWindow", "9"))
-        self.button_1.setText(_translate("MainWindow", "1"))
-        self.button_6.setText(_translate("MainWindow", "6"))
-        self.button_eq.setText(_translate("MainWindow", "="))
-        self.button_0.setText(_translate("MainWindow", "0"))
-        self.button_decim.setText(_translate("MainWindow", ","))
-        self.result.setText(_translate("MainWindow", ""))
-        self.button_erase.setText(_translate("MainWindow", "⌫"))
+        self.button_m_rec.setShortcut(_translate("MainWindow", "Shift+R"))
 
+        self.button_m_clr.setText(_translate("MainWindow", "MC"))
+        self.button_m_clr.setShortcut(_translate("MainWindow", "Shift+C"))
+        
+        self.button_m_set.setText(_translate("MainWindow", "MS"))
+        self.button_m_set.setShortcut(_translate("MainWindow", "Shift+S"))
+        
+        self.button_ans.setText(_translate("MainWindow", "ANS"))
+        self.button_ans.setShortcut(_translate("MainWindow", "Shift+A"))
+        
+        self.button_sq.setText(_translate("MainWindow", "x^2"))
+        
+        self.button_sqrt.setText(_translate("MainWindow", "2√x"))
+        
+        self.button_mult.setText(_translate("MainWindow", "*"))
+        self.button_mult.setShortcut(_translate("MainWindow", "*"))
+
+        self.button_fact.setText(_translate("MainWindow", "!"))
+        self.button_fact.setShortcut(_translate("MainWindow", "!"))
+
+        self.button_exp.setText(_translate("MainWindow", "x^n"))
+        self.button_exp.setShortcut(_translate("MainWindow", "Shift+6"))
+
+        self.button_root.setText(_translate("MainWindow", "n√x"))
+        
+        self.button_div.setText(_translate("MainWindow", "/"))
+        self.button_div.setShortcut(_translate("MainWindow", "/"))
+
+        self.button_C.setText(_translate("MainWindow", "nCk"))
+        self.button_C.setShortcut(_translate("MainWindow", "C"))
+
+        self.button_7.setText(_translate("MainWindow", "7"))
+        self.button_7.setShortcut(_translate("MainWindow", "7"))
+
+        self.button_8.setText(_translate("MainWindow", "8"))
+        self.button_8.setShortcut(_translate("MainWindow", "8"))
+
+        self.button_9.setText(_translate("MainWindow", "9"))
+        self.button_9.setShortcut(_translate("MainWindow", "9"))
+
+        self.button_4.setText(_translate("MainWindow", "4"))
+        self.button_4.setShortcut(_translate("MainWindow", "4"))
+
+        self.button_5.setText(_translate("MainWindow", "5"))
+        self.button_5.setShortcut(_translate("MainWindow", "5"))
+
+        self.button_6.setText(_translate("MainWindow", "6"))
+        self.button_6.setShortcut(_translate("MainWindow", "6"))
+
+        self.button_1.setText(_translate("MainWindow", "1"))
+        self.button_1.setShortcut(_translate("MainWindow", "1"))
+
+        self.button_2.setText(_translate("MainWindow", "2"))
+        self.button_2.setShortcut(_translate("MainWindow", "2"))
+        
+        self.button_3.setText(_translate("MainWindow", "3"))
+        self.button_3.setShortcut(_translate("MainWindow", "3"))
+
+        self.button_plus.setText(_translate("MainWindow", "+"))
+        self.button_plus.setShortcut(_translate("MainWindow", "+"))
+
+        self.button_minus.setText(_translate("MainWindow", "-"))
+        self.button_minus.setShortcut(_translate("MainWindow", "-"))
+
+        self.button_eq.setText(_translate("MainWindow", "="))
+        self.button_eq.setShortcut(_translate("MainWindow", "Return"))
+
+        self.button_0.setText(_translate("MainWindow", "0"))
+        self.button_0.setShortcut(_translate("MainWindow", "0"))
+
+        self.button_decim.setText(_translate("MainWindow", ","))
+        self.button_decim.setShortcut(_translate("MainWindow", ","))
+
+        self.button_erase.setText(_translate("MainWindow", "⌫"))
+        self.button_erase.setShortcut(_translate("MainWindow", "Backspace"))
+       
+        self.result.setText(_translate("MainWindow", ""))
+        
 if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)
