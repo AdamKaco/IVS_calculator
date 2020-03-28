@@ -6,9 +6,12 @@ from PyQt5.QtCore import Qt
 
 from calc_view import Ui_MainWindow
 
-# ! is a unary operator
-operators = {'+','-','x','/','C','^','√'}
+operators = {'+','-','x','/','C','^','√'} # ! is a unary operator, not needed here
 
+##
+# @property mem Stores the memory value
+# @property ans Stores the last result
+# @property new_res True after '=' was pressed, False otherwise
 class MyMainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
     def __init__(self, parent=None):
         super(MyMainWindow, self).__init__(parent)
@@ -17,6 +20,7 @@ class MyMainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.ans = None
         self.new_res = False
 
+    ## @brief Enters a digit if possible
     def enterNum(self, text):
         if self.new_res: 
             self.result.setText('')
@@ -27,6 +31,9 @@ class MyMainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         if currText == '' or currText[-1] != '!': # to prevent index error, ! must be followed by an operator
             self.result.setText(self.result.text() + str(text))
 
+    ## @brief Checks if the current number is already decimal
+    # @return True if isn't decimal
+    # @return False if is decimal
     def checkDec(self):
         currText = self.result.text()
 
@@ -38,6 +45,7 @@ class MyMainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
         return True
 
+    ## @brief Enters a decimal point if possible
     def enterDec(self):
         currText = self.result.text()
 
@@ -49,6 +57,7 @@ class MyMainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         elif self.checkDec():
             self.result.setText(self.result.text() + ',')
 
+    ## @brief Enters a operand if possible
     def enterOp(self, text):
         currText = self.result.text()
         self.new_res = False
@@ -58,6 +67,7 @@ class MyMainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         elif currText[-1] not in operators:  # max 1 operator in a row
             self.result.setText(currText + str(text))      
 
+    ## @brief Enters a minus if possible
     def enterMinus(self):
         currText = self.result.text()
         self.new_res = False
@@ -66,7 +76,8 @@ class MyMainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             self.result.setText(currText + '-')
         elif currText[-2:] != '--':
             self.result.setText(currText + '-')
-        
+       
+    ## @brief Removes the rightmost character 
     def erase(self):
         # in case of new result, clears the screen
         if self.new_res:
@@ -75,6 +86,7 @@ class MyMainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         else:
             self.result.setText(self.result.text()[:-1])
     
+    ## @brief Wrapper function for @p calculate
     def showRes(self):
         self.new_res = True
         # displays the answer or error with specified operator
@@ -84,16 +96,21 @@ class MyMainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             self.result.setText(tmp)
         except Exception as inst:
             self.result.setText(str(inst))
-        
+    
+    ## @brief Parses the entered expression and calculates the result
+    # @exception TypeError Operator was used with wrong number type (e.g. 5.6!)
+    # @exception ValueError Operator was used with a wrong value, but correct type (e.g. -1!)
+    # @exception IndexError Unsupported amount of operands (e.g. 5^)
+    # @return result
     def calculate(self):
         # each dictionary represents one priority category
         # mathlib function is assigned to each operator for convenient calling
         priorities = [{'!': mathlib.fact, 'C': mathlib.comb}, {'√': mathlib.root, '^': mathlib.exp}, 
-                    {'x': mathlib.mul, '/': mathlib.div}, {'+': mathlib.sum, '-': mathlib.sub}]
+                    {'*': mathlib.mul, '/': mathlib.div}, {'+': mathlib.sum, '-': mathlib.sub}]
         expr_modified = self.result.text().replace(',','.')
         expr_modified = expr_modified.replace('--','+')
         # regex for creating a list of numbers and operands
-        expr_list = re.findall(r"((?<!.)[+-][\d]+|(?<=[x/+√^!C-])[-+]?[\d.]+|[\d.]+|[x/+√^!C-])", expr_modified)
+        expr_list = re.findall(r"((?<!.)[+-][\d]+|(?<=[*/+√^!C-])[-+]?[\d.]+|[\d.]+|[*/+√^!C-])", expr_modified)
 
         for p in priorities:
             length = len(expr_list)
@@ -130,22 +147,23 @@ class MyMainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
         return res
 
+    ## @brief Calculates the result and stores it in @p mem
     def mSet(self):
         self.mem = self.calculate()
-
+    
+    ## @brief Enters the value stores in @p mem
     def mRecall(self):
         if self.mem:
             self.enterNum(self.mem)
 
+    ## @brief Sets @p mem to None
     def mClear(self):
         self.mem = None
 
+    ## @brief Enters the last calculated result if possible
     def answer(self):
         if self.ans:
             self.enterNum(self.ans)
-    
-    def keyPresseEvent(self, e):
-        self.result.setText('bim bam bum')
 
 if __name__ == "__main__":
     import sys
