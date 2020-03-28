@@ -1,3 +1,9 @@
+## @file calc_logic.py
+# @author Simon Kosina
+# @date 28.3.2020
+# @brief Logic component of the calculator app
+
+
 import mathlib
 import re
 
@@ -6,7 +12,7 @@ from PyQt5.QtCore import Qt
 
 from calc_view import Ui_MainWindow
 
-operators = {'+','-','x','/','C','^','√'} # ! is a unary operator, not needed here
+operators = {'+','-','*','/','C','^','√'} # ! is a unary operator, not needed here
 
 ##
 # @property mem Stores the memory value
@@ -57,7 +63,7 @@ class MyMainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         elif self.checkDec():
             self.result.setText(self.result.text() + ',')
 
-    ## @brief Enters an operand if possible
+    ## @brief Enters an operator if possible
     def enterOp(self, text):
         currText = self.result.text()
         self.new_res = False
@@ -164,7 +170,8 @@ class MyMainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
     def answer(self):
         if self.ans:
             self.enterNum(self.ans)
-
+    
+    ## @brief Opens manual file
     def showHelp(self):
         print('HELP')
 
