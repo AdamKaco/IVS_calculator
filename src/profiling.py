@@ -1,8 +1,10 @@
+###############################
+# Project: IVS_Calculator
+# Authors: xkacoa00, xbaris01, xkosin09
+###############################
 import sys 
 import re
 import mathlib
-
-
 
 
 i = 0
@@ -30,7 +32,6 @@ for line in sys.stdin:
             nmbs[k] = mathlib.sum(nmbs[k], int(line[j]))
             nmbs[k] = mathlib.mul(nmbs[k], 10)
 """
-
 
 for nmb in nmbs:
     ans_x = mathlib.sum(ans_x, int(nmb))

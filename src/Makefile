@@ -1,3 +1,7 @@
+###############################
+# Project: IVS_Calculator
+# Authors: xkacoa00, xbaris01, xkosin09
+###############################
 XLOG=xkosin09_xbaris01_xkacoa00
 
 ROOT_DIR=$(shell cd)\..

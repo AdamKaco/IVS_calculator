@@ -7,3 +7,4 @@ I would suggest downloading chocolatey and then just write command "choco instal
 After that you are all set and you can run program.
 If you want to run it not using command line run "calc_logic.py".
 If you want to run it via command line use command "make" or "make run".
+Use "make use" to display all possibilities of running Makefile.
