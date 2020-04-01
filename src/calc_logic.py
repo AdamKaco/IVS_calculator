@@ -25,6 +25,7 @@ class MyMainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.mem = None
         self.ans = None
         self.new_res = False
+        self.error = False
 
     ## @brief Enters a digit if possible
     def enterNum(self, text):
@@ -68,7 +69,8 @@ class MyMainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         currText = self.result.text()
         self.new_res = False
 
-        if currText == '':
+        if currText == '' or self.error:
+            self.error = False # Remove error text
             self.result.setText('0' + text)     # Enters a zero if needed
         elif currText[-1] not in operators:  # max 1 operator in a row
             self.result.setText(currText + str(text))      
@@ -80,8 +82,12 @@ class MyMainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
         if len(currText) < 2:
             self.result.setText(currText + '-')
+        elif self.error:
+            self.error = False
+            self.result.setText('-')
         elif currText[-2:] != '--':
             self.result.setText(currText + '-')
+        
        
     ## @brief Removes the rightmost character 
     def erase(self):
@@ -102,6 +108,7 @@ class MyMainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             self.result.setText(tmp)
         except Exception as inst:
             self.result.setText(str(inst))
+            self.error = True
     
     ## @brief Parses the entered expression and calculates the result
     # @exception TypeError Operator was used with wrong number type (e.g. 5.6!)
@@ -138,11 +145,15 @@ class MyMainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
                             expr_list[i + offset - 1] = tmp_res
                             offset -= 1
                     except TypeError:
-                        raise TypeError(f"{el} - wrong operand type")
+                        raise TypeError(f"Wrong operand type: {el}")
                     except ValueError:
-                        raise ValueError(f"{el} - wrong values")
+                        raise ValueError(f"Wrong values: {el}")
                     except IndexError:
-                        raise IndexError(f"{el} - not enough operands")
+                        raise IndexError(f"Not enough operands: {el}")
+                    except ZeroDivisionError:
+                        raise ZeroDivisionError("Cannot divide by zero")
+                    except:
+                        raise Exception("Something went wrong.")
 
         try:
             res = float(expr_list[0])
