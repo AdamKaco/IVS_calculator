@@ -1,5 +1,10 @@
 # -*- coding: utf-8 -*-
 
+## @file calc_view.py
+# @author Simon Kosina
+# @date 28.3.2020
+# @brief View component of the calculator app
+
 # Form implementation generated from reading ui file 'mainwindow.ui'
 #
 # Created by: PyQt5 UI code generator 5.14.1
