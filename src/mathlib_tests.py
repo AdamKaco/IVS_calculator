@@ -1,7 +1,8 @@
 ## @file mathlib_tests.py
 # @author Simon Kosina
 # @date 9.3.2020
-# @brief Tests for mathlib.py
+# @brief Unit tests for mathlib.py
+# @details Uses unittest python module for creating test clases.
 
 import unittest
 import mathlib
@@ -241,10 +242,10 @@ class TestRoot(unittest.TestCase):
         # n < 0 and odd
         # x < 0
         self.assertEqual(mathlib.root(-1, -2), -0.5)
-        self.assertEqual(mathlib.root(-5, -3125), -0.2)
+        self.assertAlmostEqual(mathlib.root(-5, -3125), -0.2)
         # x > 0
         self.assertEqual(mathlib.root(-1, 2), 0.5)
-        self.assertEqual(mathlib.root(-5, 3125), 0.2)
+        self.assertAlmostEqual(mathlib.root(-5, 3125), 0.2)
         # x = 0
         self.assertRaises(ValueError, mathlib.root, -5, 0)
 

@@ -3,7 +3,6 @@
 # @date 28.3.2020
 # @brief Logic component of the calculator app
 
-
 import mathlib
 import re
 
@@ -12,19 +11,23 @@ from PyQt5.QtCore import Qt
 
 from calc_view import Ui_MainWindow
 
-operators = {'+','-','*','/','C','^','√'} # ! is a unary operator, not needed here
+## Used for checking if it is possible to insert an operator (different rules for '!')
+operators = ('+','-','*','/','C','^','√') # ! is a unary operator, not needed here
 
-##
-# @property mem Stores the memory value
-# @property ans Stores the last result
-# @property new_res True after '=' was pressed, False otherwise
-class MyMainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
+## @brief Implements the logic for the @p Ui_MainWindows class
+class CalcMainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
+    
+    ## @brief Sets up the UI, sets @p mem, @p ans to @p None and @p new_res, @p error to @p False
     def __init__(self, parent=None):
-        super(MyMainWindow, self).__init__(parent)
+        super(CalcMainWindow, self).__init__(parent)
         self.setupUi(self)
+        ## Stores the memory value
         self.mem = None
+        ## Stores the last result
         self.ans = None
+        ## True only after '=' was pressed, False after all other actions
         self.new_res = False
+        ## True if the entered expression resulted in an error, False otherwise
         self.error = False
 
     ## @brief Enters a digit if possible
@@ -99,9 +102,9 @@ class MyMainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             self.result.setText(self.result.text()[:-1])
     
     ## @brief Wrapper function for @p calculate
+    # @details Displays the result or an error text.
     def showRes(self):
         self.new_res = True
-        # displays the answer or error with specified operator
         try:
             tmp = self.calculate()
             self.ans = tmp
@@ -114,7 +117,8 @@ class MyMainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
     # @exception TypeError Operator was used with wrong number type (e.g. 5.6!)
     # @exception ValueError Operator was used with a wrong value, but correct type (e.g. -1!)
     # @exception IndexError Unsupported amount of operands (e.g. 5^)
-    # @return result
+    # @exception ZeroDivisionError Cannot divide by zero
+    # @return Calculalated result as a string.
     def calculate(self):
         # each dictionary represents one priority category
         # mathlib function is assigned to each operator for convenient calling
@@ -123,7 +127,7 @@ class MyMainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         expr_modified = self.result.text().replace(',','.')
         expr_modified = expr_modified.replace('--','+')
         # regex for creating a list of numbers and operands
-        expr_list = re.findall(r"((?<!.)[+-][\d]+|(?<=[*/+√^!C-])[-+]?[\d.]+|[\d.]+|[*/+√^!C-])", expr_modified)
+        expr_list = re.findall(r"((?<!.)[+-][\d]+|(?<=[*/+√^C-])[-+]?[\d.]+|[\d.]+|[*/+√^!C-])", expr_modified)
 
         for p in priorities:
             length = len(expr_list)
@@ -161,6 +165,8 @@ class MyMainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             res = str(res).replace('.',',')
         except IndexError:
             res = ''
+        except:
+            raise Exception("Something went wrong.")
 
         return res
 
@@ -168,7 +174,7 @@ class MyMainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
     def mSet(self):
         self.mem = self.calculate()
     
-    ## @brief Enters the value stores in @p mem
+    ## @brief Enters the value stored in @p mem
     def mRecall(self):
         if self.mem:
             self.enterNum(self.mem)
@@ -188,9 +194,12 @@ class MyMainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
 if __name__ == "__main__":
     import sys
+    ## QApplication instance
     app = QtWidgets.QApplication(sys.argv)
+    ## QMainWindow instance
     MainWindow = QtWidgets.QMainWindow()
-    ui = MyMainWindow()
+    ## CalcMainWindow instance
+    ui = CalcMainWindow()
     ui.setupUi(MainWindow)
     MainWindow.show()
     sys.exit(app.exec_())

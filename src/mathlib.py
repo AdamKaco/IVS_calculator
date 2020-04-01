@@ -1,60 +1,36 @@
-##
-# @file mathlib.py
-# @autor Peter Baris
+## @file mathlib.py
+# @author Peter Baris
 # @date 07.03.2020
-# @brief Math library for team project IVS_Calculator
-#        Math operations: +,-,*,/,^,√,!,C
-#
+# @brief Math library implementing the +, -, *, /, ^, √, !, C operations
 
-##
-# @name Addition
-# @brief Sum of two numbers a and b
+## @brief Sum of two numbers
 # @return a + b
-##@{
 def sum(a, b):
     return a + b 
-##@}
 
-##
-# @name Subtraction
-# @brief Subtracts of two numbers a and b
+## @brief Subtracts two numbers
 # @return a - b
-##@{
 def sub(a, b):
     return a - b
-##@}
  
-##
-# @name Multiplication
-# @brief Multiplies numbers a and b
+## @brief Multiplies two numbers
 # @return a * b         
-##@{
 def mul(a, b):
     return (a * b)
-##@}
 
-##
-# @name division
-# @brief Divides numbers a and b
-# @exception If b = 0, a ZeroDivisionError is activated           
+## @brief Divides two numbers
+# @exception ZeroDivisionError if @p b equals 0           
 # @return a / b
-##@{
 def div(a, b):
     if(b == 0):
         raise ZeroDivisionError
     
     return (a / b)
-##@}
 
-##
-# @name Exponentiation
-# @brief Calculate power of number to exponent (num^exp)
-# @exception If exp is not integer, a TypeError is activated
-#            If num = 0 and exp <= 0, a ValueError activated
-# @return If exp = 0, return 1 or if num = 0, return 0
-#         If exp < 0, return 1 / (num^(-exp))
-#         If exp > 0, return result (num^exp)
-##@{
+## @brief Performs exponentiation.
+# @exception TypeError if @p exp is not an integer
+# @exception ValueError if @p num equals 0 and @p exp <= 0 (cannot divide by zero)
+# @return num^exp
 def exp(num, exp):
     result = 1
     if isinstance(exp, int):
@@ -79,16 +55,13 @@ def exp(num, exp):
         return div(1, result)
     else:
         return result
-##@}    
 
-##
-# @name Square root
-# @brief Calculate root of number to nth-root (num^1/n)
-# @exception If n is not integer, a TypeError is activated
-#            If number < 0, a ValueError is activated
-#            If num = 0 and n < 0, a ValueError is activated
-# @return result (num^1/n)
-# @{
+## @brief Calculates the n-th root of a number
+# @exception TypeError if @p n is not an integer
+# @exception ValueError if @p num < 0 and @p n is even
+# @exception ValueError if @p num = 0 and @p n < 0
+# @exception ZeroDivisionError if @p n = 0
+# @return num^1/n
 def root(n, num):
     if isinstance(n, int):
         pass  
@@ -107,15 +80,11 @@ def root(n, num):
     else:
         result = num ** (1/n) 
         return result
-##@}
 
-##
-# @name Factorial
-# @brief Calculate factorial from number num 
-# @exception If num is not intiger, a TypeError is activated
-#            If num < 0, a ValueError is activated
-# @return ans (num!)
-##@{
+## @brief Calculates factorial
+# @exception TypeError if @p num is not aa integer
+# @exception ValueError if @p num < 0
+# @return num!
 def fact(num):
     ans = 1
     
@@ -130,18 +99,12 @@ def fact(num):
         for i in range(1, int(num)+1):
             ans = ans * i
     return ans
-##@}
 
-##
-# @name Combination
-# @brief Calculate combinations k-th class from n elements
-# @exception If n or k are not integer, a TypeError is activated
-#            If n or k are < 0, a ValueError is activated
-#            If (n - k) < 0, a ValueError is activated 
-# @return result (fact(n) / (fact(k) * fact(n - k)))
-#         If k = 0 or k = n, return 1
-#         If k = 1, return 1
-##@{
+## @brief Calculates the amount of combinations of choosing @p k elements from @p n
+# @exception TypeError if @p n or @p k are not integers
+# @exception ValueError if @p n or @p k are < 0
+# @exception ValueError if @p n < @p k
+# @return fact(@p n) / (fact(@p k) * fact(@p n - @p k))
 def comb (n, k):
     if isinstance(n, int):
         pass  
@@ -170,4 +133,3 @@ def comb (n, k):
     
     result = (fact(n) / (fact(k) * fact(n - k))) 
     return result
- ##@}
