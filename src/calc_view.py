@@ -22,19 +22,19 @@
 # @section man Manual
 # Simple guide created for the purpose of explaining the usage of the app. It can also be accessed from within the application by clicking on
 # Help -> View Help or pressing the Shift + H keyboard shortcut.
-# @subsection man1 Inserting numbers and operators.
+# @subsection man1 Inserting numbers and operators
 # Numbers and operators can be entered either by pressing the representing buttons or by pressing the keys 0-9, +, -, *, /, ^ (must be pressed twice),
 # ! or c. The √ symbol can be also entered by the Shift + V keyboard shortcut.
 # @n The calculator won't allow you to insert two or more operators in a row, except for the minus sign and the factorial:
 # @n @li - - will be interpreted as a +
 # @n @li ! must be followed by an operator
-# @subsection man2 Using the operators.
+# @subsection man2 Using the operators
 # Following rules apply:
-# @li @b + Expects 2 arguments. Can be followed by a - sign.Supports integers and also real numbers, e.g. 3.5+4, 2+-1 ...
+# @li @b + Expects 2 arguments. Can be followed by a - sign. Supports integers and real numbers, e.g. 3.5+4, 2+-1 ...
 # @li @b - Same rules as for +. '- -' will be interpreted as '+', e.g. 1--1 = 1+1 ...
 # @li @b * Same rules as for +.
 # @li @b / Same rules as for +, but the second operand cannot be 0, e.g. 1/0 will result in an error
-# @li @b * Expects 2 arguments. First argument can be either integer or a real number. Second argument can only be an integer 
+# @li @b ^ Expects 2 arguments. First argument can be either integer or a real number. Second argument can only be an integer 
 # (positive or negative). Doesn't work if the first argument is 0 and second argument is negative.
 # @n - Working examples: 7^2, -7^2, 7.3^2, 7^-2 ...
 # @n - Results in an error: 0^-1, 1^2.3, 1^-2.3 ...
@@ -50,7 +50,7 @@
 # the error info is displayed. You can use the result immediately in the next calculation by entering an operator or remove it from the screen
 # by using the ⌫ button or by entering a number. Last result can be accessed by clicking the ANS button. 
 # @n By clicking the ⌫ button (or by pressing Backspace) you are able to remove the rightmost character or the whole result (as described above).
-# @subsection man4 Operator priorities.
+# @subsection man4 Operator priorities
 # Operators are organized into 4 categories. The order of evaluation is from top to bottom. Operators of equal priorities are
 # evaluated from left to right as entered in the expression in the calculator (not by the order shown below!).
 # @n The categories are:
@@ -58,7 +58,7 @@
 # @li √, ^
 # @li *, /
 # @li +, -
-# @subsection man5 Using the ANS, MR, MC, MS buttons.
+# @subsection man5 Using the ANS, MR, MC, MS buttons
 # Used by clicking the buttons or by keyboard shortcuts Shit + A (ANS), Shift + R (MR), Shift + C (MC), Shift + S (MS)
 # @n Actions performed when used:
 # @li @b ANS If there is any previous result available, it will be entered otherwise nothing will happen.

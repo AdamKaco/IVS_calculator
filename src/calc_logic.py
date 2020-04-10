@@ -5,6 +5,7 @@
 
 import mathlib
 import re
+import os
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtCore import Qt
@@ -188,9 +189,9 @@ class CalcMainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         if self.ans:
             self.enterNum(self.ans)
     
-    ## @brief Opens manual file
+    ## @brief Opens guide.pdf file
     def showHelp(self):
-        print('HELP')
+        os.startfile(os.path.join(os.getcwd(), 'src', 'guide.pdf'))
 
 if __name__ == "__main__":
     import sys
