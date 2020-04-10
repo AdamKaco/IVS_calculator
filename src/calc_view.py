@@ -14,7 +14,7 @@
 ## @mainpage IVS Calculator
 # @tableofcontents
 # @section intro Introduction
-# This is a documentation for the second project in the IVS course, created by @b xbaris03, @b xkaco00, @b xkosin09.
+# This is a documentation for the second project in the IVS course, created by @b xbaris01, @b xkaco00, @b xkosin09.
 # The project is a simple calculator app written in Python (using PyQt5 and Qt Creator), which manages to do addition, subtraction, multiplication, division,
 # exponentation, calculating the n-th root, factorial and combination number. Here you will also find the @ref man and the @ref install.
 # @section install Installation guide
