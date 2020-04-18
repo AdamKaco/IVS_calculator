@@ -12,6 +12,8 @@ from PyQt5.QtCore import Qt
 
 from calc_view import Ui_MainWindow
 
+
+
 ## Used for checking if it is possible to insert an operator (different rules for '!')
 operators = ('+','-','*','/','C','^','√') # ! is a unary operator, not needed here
 
@@ -191,12 +193,13 @@ class CalcMainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
     
     ## @brief Opens guide.pdf file
     def showHelp(self):
-        os.startfile(os.path.join(os.getcwd(), 'src', 'guide.pdf'))
+        os.startfile(os.path.join(os.getcwd(), 'guide.pdf'))
 
 if __name__ == "__main__":
     import sys
     ## QApplication instance
     app = QtWidgets.QApplication(sys.argv)
+    app.setWindowIcon(QtGui.QIcon('logo.ico'))
     ## QMainWindow instance
     MainWindow = QtWidgets.QMainWindow()
     ## CalcMainWindow instance
