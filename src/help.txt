@@ -1,9 +1,11 @@
-For installing just download BLANK, run it and follow instructions.
-Before running make sure you have all parts of program ("calc_logic.py", "calc_view.py", "mathlib.py" 
+Installation:
+    For installing just download BLANK, run it and follow instructions.
+Without Installer:
+    Clone repository. Before running make sure you have all parts of program ("calc_logic.py", "calc_view.py", "mathlib.py" 
 and other that are not nessesary for correct run: "profiling.py", "Makefile", "mathlib_tests.py", 
 "nmb_100.txt", it should all be in directory src and src in another directory for example 
 xkacoa00_xbaris01_xkosin09).
-If you want to run Makefile make sure to have zip and make commands installed on your system, if not
+    If you want to run Makefile make sure to have zip and make commands installed on your system, if not
 I would suggest downloading chocolatey and then just write command "choco install zip" or "choco install make".
 After that you are all set and you can run program.
 If you want to run it not using command line run "calc_logic.py".
