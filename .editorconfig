@@ -2,8 +2,8 @@
 root = true
 
 [*]
-indent_style = space
-end_of_line = lf
+indent_style = tab
+end_of_line = crlf
 
-[*.cpp]
+[*.py]
 indent_size = 4

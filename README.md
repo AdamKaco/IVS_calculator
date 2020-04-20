@@ -11,7 +11,7 @@ Windows 64bit
 
 Installation
 ---------
-FIX ME
+Download BLANK.exe, run it and follow instractions
 
 Usage
 ---------

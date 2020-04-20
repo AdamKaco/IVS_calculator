@@ -12,7 +12,7 @@ j = 0
 k = 0
 ans_x = 0
 nmbs = []
-#with open ('nmb_10000.txt') as file:
+#with open ('nmb_100.txt') as file:
 #    sys.stdin = file
 for line in sys.stdin:
     nmbs = nmbs + re.findall(r"\d+", line)

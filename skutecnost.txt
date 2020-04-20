@@ -1,1 +1,12 @@
-tento soubor bude obsahovat rozdil mezi planem projektu a skutecnosti
+Na zaèiatku sme si vytvorili plán, ktorı sme viac menej dodrali,
+avšak bolo treba vykona mierne úpravy, pretoe sme na zaèiatku neodhadli
+celkovı rozsah projektu. V dôsledku toho bolo potrebné urèité termíny predåi.
+
+Termíny sme dodrali, no kvôli chybám, ktoré sa prejavili a neskôr sme niektoré
+veci spätne opravovali.
+
+Kvôli vírusu COVID-19, ktorı postihol èlena tímu xbaris01, sme museli zmeni 
+rozdelenie úloh.
+
+Koniec dobrı, všetko dobré.
+P.S. Teraz u je negatívny.
