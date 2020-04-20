@@ -1,3 +1,4 @@
+For installing just download BLANK, run it and follow instructions.
 Before running make sure you have all parts of program ("calc_logic.py", "calc_view.py", "mathlib.py" 
 and other that are not nessesary for correct run: "profiling.py", "Makefile", "mathlib_tests.py", 
 "nmb_100.txt", it should all be in directory src and src in another directory for example 
