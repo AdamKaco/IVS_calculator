@@ -20,7 +20,7 @@
 # @section install Installation guide
 # Download the installer from https://tinyurl.com/KacoCalculator open it and continue according to the instructions.
 # @section uninstall Uninstallation
-# Go to "This Computer", on the menu bar click on "Computer" and then the "Uninstall or change program" tab.
+# Go to "This PC", on the menu bar click on "Computer" and then the "Uninstall or change program" tab.
 # There, find the "Calculator" app, click on it and uninstall.
 # @section man Manual
 # Simple guide created for the purpose of explaining the usage of the app. It can also be accessed from within the application by clicking on
