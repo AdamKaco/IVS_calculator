@@ -574,3 +574,5 @@ class Ui_MainWindow(object):
         self.actionShow_manual.setShortcut(_translate("MainWindow", "Shift+H"))
 
         self.result.setText(_translate("MainWindow", ""))
+
+# End of file calc_view.py
