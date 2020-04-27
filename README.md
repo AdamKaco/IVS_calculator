@@ -11,7 +11,8 @@ Windows 64bit
 
 Installation
 ---------
-Download BLANK.exe, run it and follow instractions
+Download calculator_setup.exe from https://tinyurl.com/KacoCalculator,
+run it and follow instractions
 
 Usage
 ---------

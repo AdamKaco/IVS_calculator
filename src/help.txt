@@ -1,5 +1,6 @@
 Installation:
-    For installing just download BLANK, run it and follow instructions.
+    For installing just download calculator_setup.exe from https://tinyurl.com/KacoCalculator, 
+run it and follow instructions.
 Without Installer:
     Clone repository. Before running make sure you have all parts of program ("calc_logic.py", "calc_view.py", "mathlib.py" 
 and other that are not nessesary for correct run: "profiling.py", "Makefile", "mathlib_tests.py", 
